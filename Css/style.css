@@ -1,0 +1,826 @@
+/*=============== GOOGLE FONTS ===============*/
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600&family=Poppins:wght@400;500&display=swap");
+
+/*=============== VARIABLES CSS ===============*/
+:root {
+  --header-height: 3.5rem;
+
+  /*========== Colors ==========*/
+  /*Color mode HSL(hue, saturation, lightness)*/
+  --title-color: hsl(0, 0%, 95%);
+  --text-color: hsl(0, 0%, 70%);
+  --text-color-light: hsl(0, 0%, 60%);
+  --body-color: hsl(0, 0%, 0%);
+  --container-color: hsl(0, 0%, 8%);
+
+  /*========== Font and typography ==========*/
+  /*.5rem = 8px | 1rem = 16px ...*/
+  --body-font: "Poppins", sans-serif;
+  --second-font: "Montserrat", sans-serif;
+  --biggest-font-size: 2.75rem;
+  --h1-font-size: 1.5rem;
+  --h2-font-size: 1.25rem;
+  --h3-font-size: 1rem;
+  --normal-font-size: .938rem;
+  --small-font-size: .813rem;
+  --smaller-font-size: .75rem;
+
+  /*========== Font weight ==========*/
+  --font-regular: 400;
+  --font-medium: 500;
+  --font-semi-bold: 600;
+
+  /*========== z index ==========*/
+  --z-tooltip: 10;
+  --z-fixed: 100;
+}
+
+
+/*========== Responsive typography ==========*/
+@media screen and (min-width: 1152px) {
+  :root {
+    --biggest-font-size: 5.5rem;
+    --h1-font-size: 2.5rem;
+    --h2-font-size: 1.5rem;
+    --h3-font-size: 1.25rem;
+    --normal-font-size: 1rem;
+    --small-font-size: .875rem;
+    --smaller-font-size: .813rem;
+  }
+}
+
+/*=============== BASE ===============*/
+* {
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body,
+button,
+input {
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+  color: var(--text-color);
+}
+
+body {
+  background-color: var(--body-color);
+}
+
+button,
+input {
+  outline: none;
+  border: none;
+}
+
+h1, h2, h3, h4 {
+  color: var(--title-color);
+  font-family: var(--second-font);
+  font-weight: var(--font-semi-bold);
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+.home__bg{
+  transition: transform 1s;
+}
+
+/*=============== REUSABLE CSS CLASSES ===============*/
+.container {
+  max-width: 1120px;
+  margin-inline: 1.5rem;
+}
+
+.grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.section {
+  padding-block: 5rem 1rem;
+}
+
+.section__title {
+  text-align: center;
+  font-size: var(--h1-font-size);
+  margin-bottom: 1.5rem;
+}
+
+.main {
+  overflow: hidden; /* For animation ScrollReveal */
+}
+
+/*=============== HEADER & NAV ===============*/
+.nav{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+}
+.nav__logo{
+ color: var(--title-color);
+ font-family: var(--second-font);
+ font-weight: var(--font-semi-bold);
+ position: fixed;
+ z-index: var(--z-fixed);
+ top:1rem;
+}
+.nav__toggle,
+.nav__close{
+  color: var(--title-color);
+  cursor: pointer;
+}
+.nav__toggle{
+  position: fixed;
+  z-index: 1
+}
+.join__image{
+  overflow: hidden;
+  object-fit:cover;
+  object-position: center;
+}
+/* Navigation for mobile devices */
+@media screen and (max-width: 768px){
+.nav__menu{
+  position: fixed;
+  top: -100%;
+  left: 0;
+  background-color: hsla(0, 1%, 44%, 0.123);
+  width: 100%;
+  padding-block: 5rem;
+  z-index: var(--z-tooltip);
+  -webkit-backdrop-filter: blur(24px); /* For WebKit browsers */
+  backdrop-filter: blur(24px); /* For other browsers */
+  transition: background 0.3s ease;
+
+}
+  .nav__toggle{
+    top:1rem;
+    right:1.5rem;
+  }
+
+  .explore__container{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .explore__image{
+    display:flex;
+    bottom:7rem;
+  }
+  .explore__container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .join__image{
+    display: flex;
+    justify-content: center;
+    align-items : center;
+  }
+  .join__img{
+    max-width:100%;
+    max-height: 100%;
+    object-fit: cover;
+  }
+ 
+}
+.nav__list{
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  row-gap: 2rem;
+  
+}
+.nav__link{
+  position: relative;
+  color: var(--title-color);
+  font-family: var(--second-font);
+  font-weight: var(--font-medium);
+}
+.nav__link::after{
+  content:'';
+  width:0;
+  height: 2px;
+  background-color: var(--title-color);
+  position: absolute;
+  left: 0;
+  bottom: -.5rem;
+  transition: width .3s;
+}
+.nav__link:hover::after{
+  width:100%;
+}
+.nav__close{
+  position: absolute;
+  top: 2rem;
+  right: 2rem; 
+}
+/* Show menu */
+.show-menu{
+  top:0;
+}
+
+/* Add blur to header */
+
+.blur-header{
+  position:relative;
+}
+.blur-header::after {
+  content: '';
+  position: absolute;  /* Correct the position property */
+  top: 0;              /* Positioning it to cover the element */
+  left: 0;
+  width: 100%;
+  height: 100%;         /* Make sure it covers the entire element */
+  background-color: hsla(0, 0%, 0%, 0.3); /* Semi-transparent background */
+  -webkit-backdrop-filter: blur(24px); /* For WebKit browsers */
+  backdrop-filter: blur(24px); /* For other browsers */
+  transition: background 0.3s ease;
+  z-index: -1; /* Ensure this goes behind the content */
+}
+#header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 45px; /* Adjust the height as needed */
+  background-color: transparent; /* Background will blur on scroll */
+  z-index: 10;
+}
+
+/* Active link */
+.active-link::after{
+  width: 100%;
+}
+
+/*=============== HOME ===============*/
+#home{
+  position: relative;
+}
+.home__bg{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 750px;
+  background-size: cover;    /* Ensures the image covers the entire background */
+  background-repeat: no-repeat;  /* Prevents the image from repeating */
+  background-position: center; 
+  justify-content: center;
+}
+
+.home-card-image {
+  width: 100%;
+  height: 100%;
+  opacity: 1;  /* Initially hidden */
+  transition: opacity 1s ease-in-out;  /* Smooth transition effect */
+  overflow: hidden;
+  object-fit: cover;
+}
+
+.hidden{
+  opacity:0;
+}
+.home__card-image{
+  width: 500px;
+  height: 200px;
+  overflow: hidden;
+  object-fit:cover;
+  object-position: center;
+  opacity:1;
+  transition: opacity .9s ease-in-out;
+  transition: transform .4s;
+}
+.home__card:hover .home__card-image{
+  transform: scale(1.2);
+}
+.hidden1{
+  opacity:0;
+}
+.home__container{
+  position: relative;
+  padding-top: 3rem;
+  row-gap: 3rem;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+}
+.home__data{
+  text-align: center;
+}
+.home__cards{
+  grid-template-columns: 240px;
+  justify-content: center;
+}
+.home__cards{
+  position: relative;
+  overflow: hidden;
+  margin-top: 1rem;
+}
+.home__description{
+  color: var(--title-color);
+  margin-bottom: 1rem;
+}
+.home__subtitle{
+  margin-bottom: 2rem;
+}
+.home__title{
+  font-size: var(--biggest-font-size);
+}
+/*=============== BUTTON ===============*/
+.button {
+  background-color: hsla(0, 16%, 4%, 0.049); /* Semi-transparent background */
+  padding: 0.25rem 0.5rem;
+  color: var(--title-color);
+  font-weight: 500;
+  border-radius: 5px;
+  margin-left: 2rem;
+  -webkit-backdrop-filter: blur(24px); /* For WebKit browsers */
+  backdrop-filter: blur(24px); /* For other browsers */
+  transition: background 0.3s ease;
+}
+
+/* Add a hover effect */
+.button:hover {
+  background-color: hsla(0, 33%, 1%, 0.3);
+}
+.button2{
+  background-color: hsla(0, 21%, 5%, 0.2);
+  padding: .25rem .5rem;
+  color: var(--title-color);
+  font-family: var(--second-font);
+  font-weight: var(--font-semi-bold);
+  border-radius: 5px;
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px); /* For WebKit browsers */
+  backdrop-filter: blur(24px); /* For other browsers */
+  transition: background 0.3s ease;
+}
+.button2:hover{
+  background-color:hsla(0,0%,100%,0.3);
+}
+.buttons{
+  display: inline-flex;
+  column-gap:1rem;
+  align-items: center;
+}
+.button i{
+  font-size: 1.25rem;
+  transition: transform .4s;
+  display: inline-block;
+ 
+}
+.button:hover i{
+ transform: translateX(.25rem);
+}
+
+/*=============== ABOUT ===============*/
+.about__container{
+  row-gap:3rem;
+}
+.about__data{
+  text-align: center;
+}
+.about__description{
+  margin-bottom: 2rem;
+}
+.about__image{
+  position: relative;
+  justify-self: center;
+  overflow: hidden;
+}
+.about__img{
+  width: 300px;
+  transition: transform .4s;
+}
+.about__image:hover .about__img{
+  transform: scale(1.2);
+}
+/*=============== POPULAR ===============*/
+.popular__container{
+  padding-top: 1.5rem;
+  grid-template-columns: 246px;
+  justify-content: center;
+  row-gap: 2.5 rem;
+}
+.popular__image{
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 1rem;
+  width:240px;
+  height: 320px;
+ 
+}
+.popular__title{
+  font-size: var(--h3-font-size);
+  margin-bottom: .5rem;
+}
+.popular__location{
+  display: inline-flex;
+  align-items: center;
+  column-gap: .25rem;
+  font-size: var(--small-font-size);
+  font-family: var(--second-font);
+  font-weight: 800;
+}
+.popular__location i{
+  font-size: 1rem;
+}
+.popular__img{
+  width:100%;
+  height:100%;
+  overflow: hidden;
+  object-fit:center;
+  object-fit:cover;
+  transition: transform .4s;
+}
+.popular__image:hover .popular__img{
+  transform: scale(1.2);
+}
+
+/*=============== EXPLORE ===============*/
+.explore{
+  position: relative;
+}
+.explore__image{
+  position: absolute;
+  overflow: hidden;
+}
+.explore__img{
+  width: 100%;
+  height: 333px;
+  object-fit: cover;
+  object-position: center;
+}
+.explore__content{
+  position: relative;
+  padding-top: 16rem;
+  text-align: center;;
+  row-gap: 2.5rem;
+}
+.explore__user{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: .5rem;
+}
+.explore__perfil{
+  width: 30px;
+  border-radius: 50%;
+}
+.explore__name{
+  font-size: var(--small-font-size);
+  color: var(--title-color);
+}
+
+
+
+/*=============== JOIN ===============*/
+.join__container{
+  row-gap: 3rem;
+  padding-bottom:2.5rem;
+}
+.join__data{
+  text-align: center;
+}
+.join__description{
+  margin-bottom: 2rem;
+}
+.join__form{
+ display: grid;
+ row-gap: 1rem;
+ align-items: center;
+}
+.join__input{
+  padding: 1.25rem 1rem;
+  background-color: var(--container-color);
+  margin-left: .3rem;
+  margin-right: .3rem;
+}
+.join__button{
+  padding : .7rem 1rem;
+  cursor: pointer;
+  margin-left: .3rem;
+  margin-right: .3rem;
+}
+.join__image{
+  position: relative;
+  justify-content: center;
+  overflow: hidden;
+  object-fit: cover;
+  object-fit:center;
+}
+.join__img{
+  width: 300px;
+  transition: transform .4s;
+}
+.join__image:hover .join__img{
+  transform: scale(1.2);
+}
+/*=============== FOOTER ===============*/
+.footer{
+  padding-block: 2.5rem;
+  background-color: var(--container-color);
+}
+.footer__content{
+  row-gap: 3.5rem;
+}
+.footer__logo{
+ color: var(--title-color);
+ font-size: var(--h2-font-size);
+ font-family: var(--second-font);
+ font-weight: var(--font-semi-bold);
+ margin-bottom: 1rem;
+}
+.footer__data{
+  grid-template-columns: repeat(2,max-content);
+  gap: 2rem 3.5rem;
+  justify-content: center;
+}
+.footer__title{
+  font-size: var(--h3-font-size);
+  margin-bottom: 1rem;
+}
+.footer__links{
+ display: grid;
+ row-gap: .75rem;
+}
+.footer__link{
+  color: var(--text-color);
+  transition: color .4s;
+}
+.footer__link:hover{
+  color: var(--title-color); 
+}
+.footer__social{
+  display: flex;
+  margin-top: 5rem;
+  justify-content: center;
+  align-items: center;
+  column-gap: 1.5rem;
+}
+.footer__social-link{
+  color: var(--text-color);
+  font-size: 1.25rem;
+  transition: color .4s, transform .4s;
+}
+.footer__social-link:hover{
+  color: var(--title-color);
+  transform: translateY(-.25rem);
+}
+.footer__copy{
+  display: flex;
+  justify-content: center;
+  font-size: var(--smaller-font-size);
+  color: var(--text-color-light);
+  
+}
+/*=============== SCROLL BAR ===============*/
+::-webkit-scrollbar{
+  width: .6rem;
+  border-radius: .5rem;
+  background-color: hsl(0,0%,10%);
+}
+::-webkit-scrollbar-thumb{
+  border-radius: .5rem;
+  background-color: hsl(0,0%,20%);
+}
+::-webkit-scrollbar-thumb:hover{
+  background-color: hsl(0,0%,30%);
+}
+
+/*=============== SCROLL UP ===============*/
+.scrollup{
+  position: fixed;
+  right: 1rem;
+  bottom: -50%;
+  background-color: transparent;
+  padding: 6px;
+  display: inline-flex;
+  color: var(--title-color);
+  font-size: 1.25rem;
+  z-index: var(--z-tooltip);
+  transition: bottom .4s,transform .4s;
+}
+.scrollup:hover{
+  transform: translateY(-.25rem);
+}
+/* Show Scroll Up */
+.show-scroll{
+  bottom: 3rem;
+}
+p {
+  word-wrap: break-word; /* Ensures long words are broken and wrapped to the next line */
+  overflow-wrap: break-word; /* Alternative property for better browser support */
+  white-space: normal; /* Prevents text from staying on a single line */
+}
+/*=============== BREAKPOINTS ===============*/
+/* For small devices */
+@media screen and (max-width: 340px){
+  .container{
+    margin-inline: 1rem;
+  }
+  .explore__content{
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .explore__image{
+    display: flex;
+    width: 300px;
+    justify-content: center;
+    align-items: center;
+    margin-left: 1rem;
+    height: 350px;
+  }
+
+  .explore__title{
+   margin-right: 1rem;
+   margin-bottom: 2rem;
+  }
+  .explore__description{
+    width:100%;
+    max-width:100%;
+    word-wrap:break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
+    margin-top: 1rem;
+    overflow: hidden;
+    display: block;
+    
+  }
+  
+  
+ .explore__perfil{
+  margin-left: 6rem;
+ } 
+ .buttons{
+  display:flex;
+  flex-direction: column;
+  row-gap: 1rem;
+  justify-content: center;
+ }
+ 
+
+}
+
+/* For medium devices */
+
+
+/* For large devices */
+@media screen and (min-width: 768px){
+  .home__cards{
+    grid-template-columns: repeat(3,240px);
+  }
+  .about__container{
+    grid-template-columns: repeat(2,350px);
+    align-items: center;
+    justify-content: center;
+  }
+  .popular__container{
+    grid-template-columns: repeat(2,240px);
+  }
+  .home__description{
+    margin-bottom: 3rem;
+  }
+  .nav__close{
+    top:-100%;
+  }
+  .nav__toggle{
+    top:-100%;
+  }
+  .nav__list{
+    position: absolute;
+    right: 4rem;
+    flex-direction: row;
+    column-gap: 2rem;
+    top: .7rem;
+  }
+  .nave__menu{
+    position: relative;
+  }
+  .join__input{
+    width:470px;
+  }
+  .join__button{
+    width:500px;
+  }
+  .join__form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .footer__top{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 1rem;
+    margin-top: -10px;
+    margin-bottom: -20px;
+  }
+  .footer{
+    position:relative;
+    display: flex;
+    align-items:center;
+    justify-content: center;
+  }
+  .footer__data{
+    display: flex;
+    justify-content: center;
+    column-gap: 6rem;
+    margin-bottom: 1rem;
+    position: relative;
+    margin-bottom: -70px;
+  }
+  .button{
+    padding: 1rem 2rem;
+  }
+  .button2{
+    padding: 1rem 2rem;
+  }
+  .home,.about,.popular{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+  .explore__container{
+    display:flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+  }
+  .explore__image{
+    position: relative;
+    display:flex;
+    justify-content: center;
+  }
+  .explore__img{
+    width: 800px;
+    height: 400px;
+  }
+  .explore__title{
+    position: relative;
+    top:-350px;
+  }
+  
+  .explore__description{
+    position:relative;
+    top: -250px;
+  }
+  .explore__user{
+    position:relative;
+    top:-200px;
+  }
+  .join{
+    position:relative;
+    top:-200px;
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+    justify-content:center;
+  }
+  
+  .active-link::after{
+    width: 0;
+  }
+  .join__container{
+    grid-template-columns: repeat(2,400px);
+    column-gap:1rem;
+    display:flex;
+    justify-content:center;
+    align-items : center;
+  }
+  .join__img{
+    height:310px;
+    width:400px;
+    object-fit: center;
+    object-fit: cover;
+    overflow: hidden;
+  }
+}
+@media screen and (min-width: 1045px)  {
+  .home__cards{
+    grid-template-columns: repeat(4,240px);
+    
+  }
+}

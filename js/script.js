@@ -68,9 +68,9 @@ sr.reveal(`.about__image,.join__data`,{origin: 'left'})
 sr.reveal(`.popular__card`,{interval:200})
 //HOME
 const images1 =[
+  'image/3.jpg',
   'image/1.jpg',
   'image/2.jpg',
-  'image/3.jpg',
   'image/5.jpg' 
 ];
 let currentIndex = 0;
@@ -89,5 +89,5 @@ function changeImage(){
  
 
 }
-setInterval(changeImage,15000);
+setInterval(changeImage,20000);
 

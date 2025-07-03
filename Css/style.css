@@ -643,7 +643,6 @@ p {
 @media screen and (min-width: 300px){
    .home__cards{
     grid-template-columns: repeat(2,200px);
-     height: 200px;
   }
   .home__description {
   max-width: 100%;

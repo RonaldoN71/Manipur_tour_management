@@ -640,13 +640,14 @@ p {
 }
 /*=============== BREAKPOINTS ===============*/
 /* For small devices */
-@media screen and (min-width: 400px){
+@media screen and (min-width: 300px){
    .home__cards{
     grid-template-columns: repeat(2,200px);
   }
   .home__description {
-  max-width: 100%;
+  width: 100vw;
   word-wrap: break-word;
+  padding: 0 1rem;
 }
 
   .home__data{

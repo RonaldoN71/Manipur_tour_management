@@ -638,7 +638,9 @@ p {
 /*=============== BREAKPOINTS ===============*/
 /* For small devices */
 @media screen and (max-width: 400px){
-
+   .home__cards{
+    grid-template-columns: repeat(2,200px);
+  }
   .home__data{
     text-align: left;
     margin-left: .5rem;

@@ -338,7 +338,7 @@ img {
 }
 .home__description{
   color: var(--title-color);
-  margin-bottom: 1rem;
+  margin-bottom: 9rem;
   max-width: 100%;
   word-wrap: break-word;
 }

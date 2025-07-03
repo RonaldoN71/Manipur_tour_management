@@ -709,7 +709,7 @@ p {
     grid-template-columns: repeat(2,240px);
   }
   .home__description{
-    margin-bottom: 3rem;
+    margin-bottom: 9rem;
   }
   .nav__close{
     top:-100%;

@@ -647,7 +647,7 @@ p {
   .home__description {
   width: 100vw;
   word-wrap: break-word;
-  padding: 0 1rem;
+  padding-right: 2rem;
 }
 
   .home__data{

@@ -646,6 +646,10 @@ p {
   overflow-wrap: break-word;
   white-space: normal;
 }
+.button{
+  margin-left: 0rem;
+  padding: 1rem 2rem;
+}
 }
 @media screen and (min-width: 430px){
  .home__cards {
@@ -661,10 +665,13 @@ p {
   overflow-wrap: break-word;
   white-space: normal;
 }
+  .home__container{
+    margin-bottom: 2rem;
+  }
   .home__data{
+    position: relative;
     text-align: left;
-    margin-left: .5rem;
-    width: 100%;
+    margin-left: 1rem;
     word-wrap: break-word;
   }
   .container{
@@ -709,6 +716,9 @@ p {
   flex-direction: column;
   row-gap: 1rem;
   justify-content: center;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
  }
  
 

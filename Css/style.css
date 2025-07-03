@@ -645,10 +645,13 @@ p {
     grid-template-columns: repeat(2,200px);
   }
   .home__description {
-  width: 100vw;
-  word-wrap: break-word;
+  max-width: 100%;
   padding-right: 2rem;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
 }
+
 
   .home__data{
     text-align: left;

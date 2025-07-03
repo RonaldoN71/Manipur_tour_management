@@ -103,8 +103,10 @@ img {
 /*=============== REUSABLE CSS CLASSES ===============*/
 .container {
   max-width: 1120px;
-  margin-inline: 1.5rem;
+  margin-inline: auto; /* this centers it */
+  padding-inline: 1.5rem; /* optional: to keep small side spacing */
 }
+
 
 .grid {
   display: grid;
@@ -277,6 +279,8 @@ img {
 /*=============== HOME ===============*/
 #home{
   position: relative;
+  display: grid;
+  place-items: center; /* optional but helpful */
 }
 .home__bg{
   position: absolute;
@@ -325,11 +329,11 @@ img {
   display:flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   width: 100%;
 }
 .home__data{
   text-align: left;
-  margin-left: 3.5rem;
 }
 .home__cards{
   grid-template-columns: 240px;
@@ -797,6 +801,12 @@ p {
     align-items: center;
   }
   .explore__container{
+    display:flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+  }
+  .explore__content{
     display:flex;
     flex-direction:column;
     justify-content: center;

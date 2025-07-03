@@ -339,6 +339,8 @@ img {
 .home__description{
   color: var(--title-color);
   margin-bottom: 1rem;
+  max-width: 100%;
+  word-wrap: break-word;
 }
 .home__subtitle{
   margin-bottom: 2rem;

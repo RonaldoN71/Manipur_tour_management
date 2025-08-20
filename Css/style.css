@@ -672,6 +672,7 @@ p {
     position: relative;
     text-align: left;
     margin-left: 1rem;
+    word-wrap: break-word;
   }
   .container{
     margin-inline: 1rem;
